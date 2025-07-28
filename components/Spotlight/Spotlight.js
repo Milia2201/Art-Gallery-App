@@ -1,18 +1,18 @@
 import Image from "next/image";
 
 export default function Spotlight({ data }) {
- 
-  const randomNumber = getRandom(0, 10)
+  const randomNumber = getRandom(0, 10);
   console.log("number displayed ", randomNumber);
   console.log(typeof randomNumber);
-  if (data) {var piece = data[randomNumber]};
+  if (data) {
+    var piece = data[randomNumber];
+  }
   return (
- <>
+    <>
       {data && (
         <>
-         
           {
-             <div key={piece.id}>
+            <div key={piece.id}>
               <h2>{piece.name}</h2>
               <Image
                 src={piece.imageSource}
@@ -20,14 +20,13 @@ export default function Spotlight({ data }) {
                 width={500}
                 height={0}
                 style={{ height: "auto" }}
-                />
-                <p>{piece.artist}</p>
-            </div> 
+              />
+              <p>{piece.artist}</p>
+            </div>
           }
         </>
       )}
     </>
-    
   );
 }
 
