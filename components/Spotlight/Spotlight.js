@@ -7,26 +7,27 @@ export default function Spotlight({ data }) {
   console.log(typeof randomNumber);
   if (data) {var piece = data[randomNumber]};
   return (
-    <>
+ <>
       {data && (
-        <ul>
-          {console.log("data in Spotlight",data)}
+        <>
+         
           {
-             <li key={piece.id}>
+             <div key={piece.id}>
               <h2>{piece.name}</h2>
-              <p>{piece.artist}</p>
               <Image
                 src={piece.imageSource}
                 alt={piece.name}
                 width={500}
                 height={0}
                 style={{ height: "auto" }}
-              />
-            </li> 
+                />
+                <p>{piece.artist}</p>
+            </div> 
           }
-        </ul>
+        </>
       )}
     </>
+    
   );
 }
 
