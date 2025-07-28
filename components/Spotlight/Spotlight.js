@@ -12,11 +12,17 @@ export default function Spotlight({ data }) {
       {data && (
         <>
           {
-            <div>
-             
-              <ArtPiecePreview piece={piece} />
-              <p>{piece.artist}</p>
-            </div>
+             <div key={piece.id}>
+              <h2>{piece.name}</h2>
+              <Image
+                src={piece.imageSource}
+                alt={piece.name}
+                width={500}
+                height={0}
+                style={{ height: "auto" }}
+                />
+                <p>{piece.artist}</p>
+            </div> 
           }
         </>
       )}
