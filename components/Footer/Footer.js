@@ -7,13 +7,13 @@ export default function Footer() {
       <nav>
         <ul>
           <li>
-            <Link href="/">Home</Link>
+            <Link href="/">Spotlight</Link>
           </li>
           <li>
-            <Link href="/about">About</Link>
+            <Link href="/artPieces">Art Pieces</Link>
           </li>
           <li>
-            <Link href="/contact">Contact</Link>
+            <Link href="/favourites">Favourites</Link>
           </li>
         </ul>
       </nav>
