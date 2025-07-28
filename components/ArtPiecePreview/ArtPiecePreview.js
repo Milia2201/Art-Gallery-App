@@ -1,13 +1,21 @@
 import Image from "next/image";
+
 import { HeartIcon } from "@phosphor-icons/react";
 import useLocalStorage from "use-local-storage";
 import toggleFavourite from "../../scripts/toggleFavourites";
+import Link from "next/link";
 
 export default function ArtPiecePreview({ piece }) {
   const [favourites, setFavourites] = useLocalStorage("favourites", []);
   return (
+    <Link href={`artPieces/${slug}`} passHref legacyBehavior>
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
       <div style={{ position: "relative", width: "500px" }}>
+
+
+
+
+   
         <Image
           src={piece.imageSource}
           alt={piece.name}
@@ -31,5 +39,7 @@ export default function ArtPiecePreview({ piece }) {
         />
       </div>
     </div>
+      </Link>
+
   );
 }

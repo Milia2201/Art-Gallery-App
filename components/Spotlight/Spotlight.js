@@ -12,8 +12,8 @@ export default function Spotlight({ data }) {
       {data && (
         <>
           {
-            <div>
-             
+
+            <div>             
               <ArtPiecePreview piece={piece} />
               <p>{piece.artist}</p>
             </div>
