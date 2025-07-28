@@ -1,5 +1,13 @@
 import ArtPiecePreview from "../ArtPiecePreview/ArtPiecePreview";
-export default function ArtList({ data }) {
+import useLocalStorage from "use-local-storage";
+export default function ArtList({ data, isFavouritesPage = false }) {
+  const [favourites, setFavourites] = useLocalStorage("favourites", []);
+
+
+
+  if (data && isFavouritesPage) {
+    data = data.filter((piece) => favourites.includes(piece.slug));
+  }
   return (
     <>
       {data && (
@@ -8,7 +16,9 @@ export default function ArtList({ data }) {
             <li key={piece.id}>
               <h2>{piece.name}</h2>
               <p>{piece.artist}</p>
-              <ArtPiecePreview piece={piece} />
+              <ArtPiecePreview
+                piece={piece}
+              />
             </li>
           ))}
         </ul>
