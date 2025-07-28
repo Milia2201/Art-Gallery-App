@@ -5,7 +5,7 @@ export default function Spotlight({ data }) {
   const randomNumber = getRandom(0, 10)
   console.log("number displayed ", randomNumber);
   console.log(typeof randomNumber);
-  const piece = data[randomNumber];
+  if (data) {var piece = data[randomNumber]};
   return (
     <>
       {data && (
