@@ -30,6 +30,7 @@ export default function ArtPiecePreview({ piece, slug }) {
           />
         </Link>
         <HeartIcon
+          aria-label="favourite"
           size={32}
           weight={favourites.includes(piece.slug) ? "fill" : "regular"}
           color="#ff0000"

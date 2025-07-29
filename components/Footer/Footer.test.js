@@ -5,9 +5,18 @@ import "@testing-library/jest-dom";
 describe("Footer", () => {
   it("renders the navigation links", () => {
     render(<Footer />);
-    expect(screen.getByRole("link", { name: /Spotlight/i })).toHaveAttribute("href", "/");
-    expect(screen.getByRole("link", { name: /Art Pieces/i })).toHaveAttribute("href", "/details");
-    expect(screen.getByRole("link", { name: /Favourites/i })).toHaveAttribute("href", "/favourites");
+    expect(screen.getByRole("link", { name: /Spotlight/i })).toHaveAttribute(
+      "href",
+      "/"
+    );
+    expect(screen.getByRole("link", { name: /Art Pieces/i })).toHaveAttribute(
+      "href",
+      "/details"
+    );
+    expect(screen.getByRole("link", { name: /Favourites/i })).toHaveAttribute(
+      "href",
+      "/favourites"
+    );
   });
 
   it("renders a nav element", () => {
