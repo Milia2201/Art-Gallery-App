@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import ArtPieceDetails from "../../components/ArtPieceDetails/ArtPieceDetails";
 import useSWR from "swr";
 import fetcher from "../../components/fetcher/fetcher";
+import CommentSection from "../../components/CommentSection/CommentSection";
 
 export default function ArtPieceDetailsPage() {
   //const [selectedArtPiece, setSelectArtPiece] = useState(null);
@@ -37,6 +38,7 @@ export default function ArtPieceDetailsPage() {
         onBack={() => router.back()}
         piece={selectedArtPiece}
       ></ArtPieceDetails>
+      <CommentSection piece={selectedArtPiece}/>
     </>
   );
 }
