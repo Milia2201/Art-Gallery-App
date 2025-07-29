@@ -2,6 +2,7 @@ import Image from "next/image.js";
 import { HeartIcon } from "@phosphor-icons/react";
 import useLocalStorage from "use-local-storage";
 import toggleFavourite from "../../scripts/toggleFavourites";
+import ColorPalette from "../ColorPalette/ColorPalette.js";
 export default function ArtPieceDetails({
 piece, onBack
 }) {
@@ -51,6 +52,7 @@ piece, onBack
             zIndex: 2,
           }}
           /></div>
+          <ColorPalette colors={piece.colors} />
       <ul>
         <li>{artist}</li>
         <li>{year}</li>
