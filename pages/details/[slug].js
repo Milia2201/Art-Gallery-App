@@ -9,14 +9,18 @@ export default function ArtPieceDetailsPage() {
   const router = useRouter();
   const { slug } = router.query;
 
-    const { data, error, isLoading } = useSWR(
+  const { data, error, isLoading } = useSWR(
     "https://example-apis.vercel.app/api/art",
     fetcher
   );
 
-let selectedArtPiece = data.find((piece) => slug === piece.slug)
+  if (isLoading || !data) {
+    return <p>Loading artwork...</p>;
+  }
 
- /* useEffect(() => {
+  let selectedArtPiece = data.find((piece) => slug === piece.slug);
+
+  /* useEffect(() => {
     if (!slug || !pieces) return;
     setSelectArtPiece(pieces.find((piece) => piece.slug === slug));
   }, [selectedArtPiece, pieces, slug]);
@@ -25,13 +29,14 @@ let selectedArtPiece = data.find((piece) => slug === piece.slug)
     return <p>Loading artwork...</p>;
   }
 
-  return (<>
-        <h1>Details Page</h1>
+  return (
+    <>
+      <h1>Details Page</h1>
       <p>This is the details page content.</p>
-    <ArtPieceDetails
-      onBack={() => router.back()}
-piece={selectedArtPiece}
-    ></ArtPieceDetails>
+      <ArtPieceDetails
+        onBack={() => router.back()}
+        piece={selectedArtPiece}
+      ></ArtPieceDetails>
     </>
   );
 }
