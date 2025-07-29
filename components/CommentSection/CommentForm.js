@@ -4,6 +4,7 @@ export default function CommentForm({ handleNewComment }) {
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData.entries(formData));
     handleNewComment({comment: data.comment, date: getFormattedDateTime()});
+    event.target.reset(); 
   };
 
   function getFormattedDateTime() {

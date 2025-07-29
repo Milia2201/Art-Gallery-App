@@ -1,5 +1,6 @@
 import CommentForm from "./CommentForm.js";
 import useLocalStorage from "use-local-storage";
+import CommentList from "./CommentList.js";
 export default function CommentSection({piece}) {
     const [comments, setComments] = useLocalStorage(piece.slug, []);
 
@@ -11,7 +12,7 @@ export default function CommentSection({piece}) {
     <div>
       <h2>Comments</h2>
         <CommentForm handleNewComment={handleNewComment}/>
-      <p>No comments available yet.</p>
+        <CommentList comments={comments} />
     </div>
   );
 }
