@@ -1,6 +1,7 @@
 import Image from "next/image.js";
 import { HeartIcon } from "@phosphor-icons/react";
 import useLocalStorage from "use-local-storage";
+import toggleFavourite from "../../scripts/toggleFavourites";
 export default function ArtPieceDetails({
 piece, onBack
 }) {
