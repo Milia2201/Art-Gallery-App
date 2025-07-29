@@ -1,34 +1,36 @@
-import Image from "next/image";
+import Image from "next/image.js";
 import { HeartIcon } from "@phosphor-icons/react";
 import useLocalStorage from "use-local-storage";
-import toggleFavourite from "../../scripts/toggleFavourites";
-import Link from "next/link.js";
+export default function ArtPieceDetails({
+piece, onBack
+}) {
 
-export default function ArtPiecePreview({ piece, slug }) {
+    let  image=piece.imageSource
+    let  title=piece.name
+    let  artist=piece.artist
+    let  year=piece.year
+    let  genre=piece.genre
+  
+
   const [favourites, setFavourites] = useLocalStorage("favourites", []);
 
-  if (!piece) {
-    return <div>No art piece available</div>;
-  }
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-    >
+    <>
+      <button
+        type="button"
+        onClick={onBack}
+        aria-label="navigate back"
+        style={{ height: "3rem", width: "3rem"}}
+      ></button>
+
+      <h2>{title}</h2>
       <div style={{ position: "relative", width: "500px" }}>
-        <Link href={`details/${piece.slug}`} passHref legacyBehavior>
-          <Image
-            src={piece.imageSource}
-            alt={piece.name}
-            width={500}
+      <Image src={image} 
+      alt={`${artist}: ${title}`}
+                  width={500}
             height={0}
-            style={{ height: "auto", display: "block" }}
-          />
-        </Link>
+            style={{ height: "auto", display: "block" }}></Image>
         <HeartIcon
           size={32}
           weight={favourites.includes(piece.slug) ? "fill" : "regular"}
@@ -47,8 +49,12 @@ export default function ArtPiecePreview({ piece, slug }) {
             cursor: "pointer",
             zIndex: 2,
           }}
-        />
-      </div>
-    </div>
+          /></div>
+      <ul>
+        <li>{artist}</li>
+        <li>{year}</li>
+        <li>{genre}</li>
+      </ul>
+    </>
   );
 }
