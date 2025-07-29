@@ -10,6 +10,8 @@ export default function ArtPiecePreview({ piece, slug }) {
   if (!piece) {
     return <div>No art piece available</div>;
   }
+  const imageWidth = (window.innerWidth * 90) / 100;
+console.log('imageWidth: ', imageWidth);
 
   return (
     <div
@@ -19,12 +21,12 @@ export default function ArtPiecePreview({ piece, slug }) {
         alignItems: "center",
       }}
     >
-      <div style={{ position: "relative", width: "500px" }}>
+      <div style={{ position: "relative", width: imageWidth }}>
         <Link href={`details/${piece.slug}`} passHref legacyBehavior>
           <Image
             src={piece.imageSource}
             alt={piece.name}
-            width={500}
+            width={imageWidth}
             height={0}
             style={{ height: "auto", display: "block" }}
           />
