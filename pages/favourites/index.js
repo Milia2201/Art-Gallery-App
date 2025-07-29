@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import fetcher from "../../components/fetcher/fetcher";
+import fetcher from "../../scripts/fetcher/fetcher";
 import Footer from "../../components/Footer/Footer";
 import ArtList from "../../components/ArtList/ArtList";
 export default function ArtPieces() {

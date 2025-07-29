@@ -1,6 +1,6 @@
 import Footer from "../components/Footer/Footer";
 import useSWR from "swr";
-import fetcher from "../components/fetcher/fetcher";
+import fetcher from "../scripts/fetcher/fetcher";
 import Spotlight from "../components/Spotlight/Spotlight";
 
 export default function HomePage() {
@@ -10,14 +10,13 @@ export default function HomePage() {
   );
   return (
     <>
-    <div>
-      <h1>Art Pieces</h1>
-      <p>Explore our collection of art pieces.</p>
-      {error && <div>Failed to load art pieces.</div>}
-      {isLoading && <div>Loading...</div>}
-      <Spotlight data={data} />
-
-    </div>
+      <div>
+        <h1>Art Pieces</h1>
+        <p>Explore our collection of art pieces.</p>
+        {error && <div>Failed to load art pieces.</div>}
+        {isLoading && <div>Loading...</div>}
+        <Spotlight data={data} />
+      </div>
       <Footer />
     </>
   );
