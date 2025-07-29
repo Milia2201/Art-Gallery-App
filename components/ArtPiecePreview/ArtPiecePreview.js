@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { HeartIcon } from "@phosphor-icons/react";
 import useLocalStorage from "use-local-storage";
-import toggleFavourite from "../../scripts/toggleFavourites";
+import toggleFavourite from "../../scripts/fetcher/toggleFavourites/toggleFavourites";
 import Link from "next/link.js";
 
 export default function ArtPiecePreview({ piece, slug }) {
@@ -32,6 +32,7 @@ console.log('imageWidth: ', imageWidth);
           />
         </Link>
         <HeartIcon
+          aria-label="favourite"
           size={32}
           weight={favourites.includes(piece.slug) ? "fill" : "regular"}
           color="#ff0000"
