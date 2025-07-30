@@ -1,12 +1,13 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import ArtPieceDetails from "../../components/ArtPieceDetails/ArtPieceDetails";
 import useSWR from "swr";
 import fetcher from "../../scripts/fetcher/fetcher";
 import CommentSection from "../../components/CommentSection/CommentSection";
+import styled from "styled-components";
+import Footer from "@/components/Footer/Footer";
 
+// Page for displaying details of a specific art piece
 export default function ArtPieceDetailsPage() {
-  //const [selectedArtPiece, setSelectArtPiece] = useState(null);
   const router = useRouter();
   const { slug } = router.query;
 
@@ -15,30 +16,31 @@ export default function ArtPieceDetailsPage() {
     fetcher
   );
 
+  //While still loading the data the message "is loading appears"
   if (isLoading || !data) {
     return <p>Loading artwork...</p>;
   }
 
   let selectedArtPiece = data.find((piece) => slug === piece.slug);
 
-  /* useEffect(() => {
-    if (!slug || !pieces) return;
-    setSelectArtPiece(pieces.find((piece) => piece.slug === slug));
-  }, [selectedArtPiece, pieces, slug]);
-  */
   if (!selectedArtPiece) {
     return <p>Loading artwork...</p>;
   }
 
   return (
     <>
-      <h1>Details Page</h1>
-      <p>This is the details page content.</p>
-      <ArtPieceDetails
-        onBack={() => router.back()}
-        piece={selectedArtPiece}
-      ></ArtPieceDetails>
-      <CommentSection piece={selectedArtPiece} />
+      <StyledDiv>
+        <ArtPieceDetails
+          onBack={() => router.back()}
+          piece={selectedArtPiece}
+        ></ArtPieceDetails>
+        <CommentSection piece={selectedArtPiece} />
+      </StyledDiv>
+      <Footer />
     </>
   );
 }
+
+const StyledDiv = styled.div`
+  padding: 20px;
+`;

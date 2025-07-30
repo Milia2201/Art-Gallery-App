@@ -1,14 +1,25 @@
-export default function ColorPalette({colors})
-{
-    if (!colors || colors.length === 0) {
-        return <p>No colors available.</p>;
-    }
+import styled from "styled-components";
 
-    return (
-        <ul>
-            {colors.map((color, index) => (
-                <li key={index} style={{ backgroundColor: color, padding: "10px", margin: "5px 0" }}>
-                    
-                </li>
-            ))}
-        </ul>)}
+// Component to display a color palette from the provided colors
+export default function ColorPalette({ colors }) {
+  if (!colors || colors.length === 0) {
+    return <p>No colors available.</p>;
+  }
+
+  return (
+    <StyledUl>
+      {colors.map((color, index) => (
+        <li
+          key={index}
+          style={{ backgroundColor: color, padding: "15px", margin: "5px 0" }}
+        ></li>
+      ))}
+    </StyledUl>
+  );
+}
+
+const StyledUl = styled.ul`
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+`;
