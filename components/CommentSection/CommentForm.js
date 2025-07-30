@@ -26,7 +26,7 @@ export default function CommentForm({ handleNewComment }) {
       <textarea
         placeholder="Write your comment here..."
         rows="4"
-        cols="50"
+        cols="40"
         name="comment"
       ></textarea>
       <br />

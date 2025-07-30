@@ -10,8 +10,8 @@ export default function ArtPiecePreview({ piece, slug }) {
   if (!piece) {
     return <div>No art piece available</div>;
   }
-  const imageWidth = (window.innerWidth * 90) / 100;
-console.log('imageWidth: ', imageWidth);
+  
+  const imageWidth = (window.innerWidth - 40);
 
   return (
     <div

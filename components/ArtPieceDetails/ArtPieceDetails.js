@@ -1,8 +1,10 @@
 import Image from "next/image.js";
-import { HeartIcon } from "@phosphor-icons/react";
+import { HeartIcon, ArrowLeftIcon } from "@phosphor-icons/react";
 import useLocalStorage from "use-local-storage";
 import toggleFavourite from "../../scripts/fetcher/toggleFavourites/toggleFavourites";
 import ColorPalette from "../ColorPalette/ColorPalette.js";
+import styled from "styled-components";
+
 export default function ArtPieceDetails({ piece, onBack }) {
   let image = piece.imageSource;
   let title = piece.name;
@@ -11,22 +13,18 @@ export default function ArtPieceDetails({ piece, onBack }) {
   let genre = piece.genre;
 
   const [favourites, setFavourites] = useLocalStorage("favourites", []);
-
+  const imageWidth = window.innerWidth - 40;
   return (
     <>
-      <button
-        type="button"
-        onClick={onBack}
-        aria-label="navigate back"
-        style={{ height: "3rem", width: "3rem" }}
-      ></button>
+      <StyledButton type="button" onClick={onBack} aria-label="navigate back">
+        <ArrowLeftIcon size={32} />
+      </StyledButton>
 
-      <h2>{title}</h2>
-      <div style={{ position: "relative", width: "500px" }}>
+      <div style={{ position: "relative", width: imageWidth }}>
         <Image
           src={image}
           alt={`${artist}: ${title}`}
-          width={500}
+          width={imageWidth}
           height={0}
           style={{ height: "auto", display: "block" }}
         ></Image>
@@ -51,11 +49,22 @@ export default function ArtPieceDetails({ piece, onBack }) {
         />
       </div>
       <ColorPalette colors={piece.colors} />
+      <h2>{title}</h2>
       <ul>
-        <li>{artist}</li>
-        <li>{year}</li>
-        <li>{genre}</li>
+        <li>Artist: {artist}</li>
+        <li>Genre: {genre}</li>
+        <li>Published: {year}</li>
       </ul>
     </>
   );
 }
+
+// Arrow aligns with the left side
+const StyledButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+  background: none;
+  border: none;
+`;

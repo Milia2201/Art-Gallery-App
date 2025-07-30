@@ -11,8 +11,8 @@ export default function CommentSection({piece}) {
   return (
     <div>
       <h2>Comments</h2>
-        <CommentForm handleNewComment={handleNewComment}/>
         <CommentList comments={comments} />
+        <CommentForm handleNewComment={handleNewComment}/>
     </div>
   );
 }
