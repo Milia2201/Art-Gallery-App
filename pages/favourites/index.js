@@ -5,6 +5,7 @@ import ArtList from "../../components/ArtList/ArtList";
 import Header from "@/components/Header/Header";
 import styled from "styled-components";
 
+// Page for the Favourites
 export default function ArtPieces() {
   const { data, error, isLoading } = useSWR(
     "https://example-apis.vercel.app/api/art",

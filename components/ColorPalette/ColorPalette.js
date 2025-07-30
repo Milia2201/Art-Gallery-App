@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+// Component to display a color palette from the provided colors
 export default function ColorPalette({ colors }) {
   if (!colors || colors.length === 0) {
     return <p>No colors available.</p>;
@@ -17,9 +18,8 @@ export default function ColorPalette({ colors }) {
   );
 }
 
-
 const StyledUl = styled.ul`
-display: flex;
-flex-direction: row;
-gap: 10px;
-`
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+`;

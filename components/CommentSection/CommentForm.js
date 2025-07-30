@@ -3,22 +3,22 @@ export default function CommentForm({ handleNewComment }) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData.entries(formData));
-    handleNewComment({comment: data.comment, date: getFormattedDateTime()});
-    event.target.reset(); 
+    handleNewComment({ comment: data.comment, date: getFormattedDateTime() });
+    event.target.reset();
   };
 
   function getFormattedDateTime() {
-  const now = new Date();
+    const now = new Date();
 
-  const day = String(now.getDate()).padStart(2, '0');
-  const month = String(now.getMonth() + 1).padStart(2, '0'); 
-  const year = now.getFullYear();
+    const day = String(now.getDate()).padStart(2, "0");
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const year = now.getFullYear();
 
-  const hours = String(now.getHours()).padStart(2, '0');
-  const minutes = String(now.getMinutes()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, "0");
+    const minutes = String(now.getMinutes()).padStart(2, "0");
 
-  return `${day}.${month}.${year} ${hours}:${minutes}`;
-}
+    return `${day}.${month}.${year} ${hours}:${minutes}`;
+  }
 
   return (
     <form onSubmit={handleSubmit}>

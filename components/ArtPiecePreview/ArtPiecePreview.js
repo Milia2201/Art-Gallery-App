@@ -4,14 +4,15 @@ import useLocalStorage from "use-local-storage";
 import toggleFavourite from "../../scripts/fetcher/toggleFavourites/toggleFavourites";
 import Link from "next/link.js";
 
+// Component to show an Art Piece with an Heart Icon
 export default function ArtPiecePreview({ piece, slug }) {
   const [favourites, setFavourites] = useLocalStorage("favourites", []);
 
   if (!piece) {
     return <div>No art piece available</div>;
   }
-  
-  const imageWidth = (window.innerWidth - 40);
+
+  const imageWidth = window.innerWidth - 40;
 
   return (
     <div

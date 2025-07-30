@@ -5,6 +5,7 @@ import toggleFavourite from "../../scripts/fetcher/toggleFavourites/toggleFavour
 import ColorPalette from "../ColorPalette/ColorPalette.js";
 import styled from "styled-components";
 
+//Component to show details when clicked on an art piece
 export default function ArtPieceDetails({ piece, onBack }) {
   let image = piece.imageSource;
   let title = piece.name;

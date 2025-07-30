@@ -5,6 +5,7 @@ import Spotlight from "../components/Spotlight/Spotlight";
 import styled from "styled-components";
 import Header from "@/components/Header/Header";
 
+//Page for the Spotlight
 export default function HomePage() {
   const { data, error, isLoading } = useSWR(
     "https://example-apis.vercel.app/api/art",

@@ -6,6 +6,7 @@ import CommentSection from "../../components/CommentSection/CommentSection";
 import styled from "styled-components";
 import Footer from "@/components/Footer/Footer";
 
+// Page for displaying details of a specific art piece
 export default function ArtPieceDetailsPage() {
   const router = useRouter();
   const { slug } = router.query;
@@ -15,6 +16,7 @@ export default function ArtPieceDetailsPage() {
     fetcher
   );
 
+  //While still loading the data the message "is loading appears"
   if (isLoading || !data) {
     return <p>Loading artwork...</p>;
   }
@@ -28,13 +30,11 @@ export default function ArtPieceDetailsPage() {
   return (
     <>
       <StyledDiv>
-
         <ArtPieceDetails
           onBack={() => router.back()}
           piece={selectedArtPiece}
         ></ArtPieceDetails>
         <CommentSection piece={selectedArtPiece} />
-
       </StyledDiv>
       <Footer />
     </>
@@ -43,5 +43,4 @@ export default function ArtPieceDetailsPage() {
 
 const StyledDiv = styled.div`
   padding: 20px;
-
 `;
