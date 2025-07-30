@@ -30,6 +30,7 @@ export default function ArtPieceDetails({ piece, onBack }) {
           style={{ height: "auto", display: "block" }}
         ></Image>
         <HeartIcon
+        aria-label="favourite"
           size={32}
           weight={favourites.includes(piece.slug) ? "fill" : "regular"}
           color="#ff0000"

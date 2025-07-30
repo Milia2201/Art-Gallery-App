@@ -124,7 +124,12 @@ const mockData = [
 
 jest.mock("../ArtPiecePreview/ArtPiecePreview", () => {
   function MockArtPiecePreview({ piece }) {
-    return <div data-testid="art-piece-preview">{piece?.name}</div>;
+    return (
+      <div data-testid="art-piece-preview">
+        {piece?.name}
+        <span>{piece?.artist}</span>
+      </div>
+    );
   }
   return MockArtPiecePreview;
 });

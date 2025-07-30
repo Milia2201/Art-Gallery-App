@@ -1,6 +1,16 @@
 import { render, screen } from "@testing-library/react";
-import Footer from "./Footer";
 import "@testing-library/jest-dom";
+
+// Router-Mock VOR Footer-Import!
+jest.mock("next/router", () => ({
+  useRouter: () => ({
+    push: jest.fn(),
+    prefetch: jest.fn(),
+    pathname: "/",
+  }),
+}));
+
+import Footer from "./Footer";
 
 describe("Footer", () => {
   it("renders the navigation links", () => {
