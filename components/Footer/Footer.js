@@ -15,8 +15,8 @@ export default function Footer() {
           </StyledLi>
           <StyledLi>
             <StyledLink
-              href="/details"
-              $active={router.pathname === "/details"}
+              href="/artpieces"
+              $active={router.pathname === "/artpieces"}
             >
               Art Pieces
             </StyledLink>
